@@ -11,12 +11,12 @@ const Footer: React.FC = () => {
         <p className="mt-2">
           Desarrollado con ❤️ por{' '}
           <a
-            href="https://github.com/tu-usuario"
+            href="https://github.com/juanmanms"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline"
           >
-            Tu Nombre
+            Juanmanms
           </a>
         </p>
       </div>
