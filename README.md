@@ -16,14 +16,13 @@ Un proyecto de Next.js que agrupa herramientas útiles para el día a día en in
    - Listado de atajos útiles para Windows, organizados por categorías.
    - Buscador para encontrar atajos rápidamente.
 
-## Próximas Herramientas
-
+## Próximas Herramientas/trabajos
+- *Mejorar diseño y componentes
 - Conversor de Unidades.
 - Generador de Lorem Ipsum.
 - Calculadora de Hash.
 - Codificador/Decodificador.
 - Generador de QR Codes.
-- Monitor de Sistema (Básico).
 - Cheatsheets de Comandos (Git, Docker, Linux, etc.).
 
 ## Tecnologías Utilizadas
@@ -35,19 +34,7 @@ Un proyecto de Next.js que agrupa herramientas útiles para el día a día en in
 
 ## Estructura del Proyecto
 
-src/
-├── app/
-│ ├── (tools)/ # Grupo de herramientas
-│ │ ├── password-generator/ # Generador de contraseñas
-│ │ ├── regex-helper/ # Ayudante de regex
-│ │ ├── windows-shortcuts/ # Listado de atajos de Windows
-│ │ └── ... # Otras herramientas
-│ ├── layout.tsx # Layout principal
-│ └── page.tsx # Página de inicio
-├── components/ # Componentes reutilizables
-├── hooks/ # Hooks personalizados
-├── utils/ # Funciones utilitarias
-└── styles/ # Estilos globales
+src/ ├── app/ │ ├── (tools)/ # Grupo de herramientas │ │ ├── password-generator/ # Generador de contraseñas │ │ ├── regex-helper/ # Ayudante de regex │ │ ├── windows-shortcuts/ # Listado de atajos de Windows │ │ └── ... # Otras herramientas │ ├── layout.tsx # Layout principal │ └── page.tsx # Página de inicio ├── components/ # Componentes reutilizables ├── hooks/ # Hooks personalizados ├── utils/ # Funciones utilitarias └── styles/ # Estilos globales
 
 ## Cómo Configurar el Proyecto
 
