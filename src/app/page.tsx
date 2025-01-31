@@ -17,6 +17,36 @@ export default function Home() {
       description: 'Consulta los atajos de teclado más útiles para Windows.',
       href: '/windows-shortcuts',
     },
+    {
+      title: 'Comandos de Git',
+      description: 'Lista de comandos de Git para trabajar con repositorios.',
+      href: '/git-commands',
+    },
+    // {
+    //   title: 'Convertidor de Bases',
+    //   description: 'Convierte números entre diferentes bases numéricas.',
+    //   href: '/base-converter',
+    // },
+    // {
+    //   title: 'Calculadora de IP',
+    //   description: 'Calcula subredes y direcciones IP de manera sencilla.',
+    //   href: '/ip-calculator',
+    // },
+    // {
+    //   title: 'Calculadora de Subredes',
+    //   description: 'Calcula subredes y direcciones IP de manera sencilla.',
+    //   href: '/subnet-calculator',
+    // },
+    // {
+    //   title: 'Calculadora de CIDR',
+    //   description: 'Calcula subredes y direcciones IP de manera sencilla.',
+    //   href: '/cidr-calculator',
+    // },
+    // {
+    //   title: 'Calculadora de VLSM',
+    //   description: 'Calcula subredes y direcciones IP de manera sencilla.',
+    //   href: '/vlsm-calculator',
+    // },
     // Añade más herramientas aquí
   ];
 

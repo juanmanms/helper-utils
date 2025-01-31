@@ -77,12 +77,12 @@ const WindowsShortcuts: React.FC = () => {
       {filteredCategories.map(
         (category) =>
           category.shortcuts.length > 0 && (
-            <div key={category.name}>
-              <h3 className="text-xl font-semibold mb-2">{category.name}</h3>
-              <ul className="space-y-2">
+            <div key={category.name} className="bg-white p-4 rounded-lg shadow-md lg:grid lg:grid-cols-2 gap-4">
+              <h3 className="text-xl font-semibold mb-2 col-span-2">{category.name}</h3>
+              <ul className="space-y-2 col-span-2">
                 {category.shortcuts.map((shortcut, index) => (
-                  <li key={index} className="flex justify-between items-center">
-                    <span>{shortcut.description}</span>
+                  <li key={index} className="flex ">
+                    <span>{shortcut.description}</span>-----------------
                     <button
                       onClick={() => handleCopy(shortcut.keys)}
                       className="text-blue-500 hover:underline"
