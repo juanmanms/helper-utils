@@ -14,9 +14,10 @@ const RegexHelper: React.FC = () => {
       const matches = testText.match(regexObj);
       setMatches(matches);
       setError(null);
-    } catch (err) {
+    } catch {
       setError('Expresión regular inválida');
       setMatches(null);
+
     }
   };
 
