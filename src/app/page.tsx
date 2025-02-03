@@ -22,6 +22,11 @@ export default function Home() {
       description: 'Lista de comandos de Git para trabajar con repositorios.',
       href: '/git-commands',
     },
+    {
+      title: 'Listado de IA interesantes',
+      description: 'Las Ias más interesantes del mundo',
+      href: '/ia-list',
+    },
     // {
     //   title: 'Convertidor de Bases',
     //   description: 'Convierte números entre diferentes bases numéricas.',
