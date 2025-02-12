@@ -3,8 +3,8 @@
 import React from 'react';
 import Card from '../../../components/Card';
 
-const IAList: React.FC = () => {
-    const iaList = [
+const FindJobs: React.FC = () => {
+    const FindJobs = [
         {
             name: 'ChatGpt',
             description: 'ChatGPT es una IA que puede mantener conversaciones con humanos de manera natural.',
@@ -39,11 +39,6 @@ const IAList: React.FC = () => {
             name: 'database.build',
             description: 'database.build es una IA para la creación de bases de datos.',
             link: 'https://database.build/',
-        },
-        {
-            name: 'A0',
-            description: 'A0 sirve para sacar componentes de reactnative',
-            link: 'https://a0.dev/',
         }
     ];
 
@@ -51,7 +46,7 @@ const IAList: React.FC = () => {
         <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">Listado de IA interesantes</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {iaList.map((ia, index) => (
+                {FindJobs.map((ia, index) => (
                     <Card
                         key={index}
                         title={ia.name}
@@ -64,4 +59,4 @@ const IAList: React.FC = () => {
     );
 };
 
-export default IAList;
+export default FindJobs;
