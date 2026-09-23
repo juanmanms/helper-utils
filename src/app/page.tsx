@@ -27,6 +27,11 @@ export default function Home() {
       description: 'Las Ias más interesantes del mundo',
       href: '/ia-list',
     },
+    {
+      title: 'Calculadora de Margen de Precios',
+      description: 'Calcula precios de retail informático por categoría de producto.',
+      href: '/price-margin',
+    },
     // {
     //   title: 'Convertidor de Bases',
     //   description: 'Convierte números entre diferentes bases numéricas.',

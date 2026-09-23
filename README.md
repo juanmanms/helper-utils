@@ -2,28 +2,16 @@
 
 Un proyecto de Next.js que agrupa herramientas útiles para el día a día en informática, como generadores de contraseñas, ayudantes de regex, atajos de teclado de Windows y más.
 
-## Herramientas Implementadas
+## Herramientas disponibles
 
-1. **Generador de Contraseñas**:
-   - Genera contraseñas seguras con opciones personalizables (longitud, mayúsculas, números, símbolos).
-   - Soporta la generación de frases seguras fáciles de recordar.
-
-2. **Ayudante de Regex** (en desarrollo):
-   - Editor interactivo para construir y probar expresiones regulares.
-   - Ejemplos predefinidos y explicación de cada parte del regex.
-
-3. **Atajos de Teclado de Windows** (en desarrollo):
-   - Listado de atajos útiles para Windows, organizados por categorías.
-   - Buscador para encontrar atajos rápidamente.
-
-## Próximas Herramientas/trabajos
-- *Mejorar diseño y componentes
-- Conversor de Unidades.
-- Generador de Lorem Ipsum.
-- Calculadora de Hash.
-- Codificador/Decodificador.
-- Generador de QR Codes.
-- Cheatsheets de Comandos (Git, Docker, Linux, etc.).
+| Herramienta | Ruta | Descripción |
+| --- | --- | --- |
+| Generador de contraseñas | `/password-generator` | Genera contraseñas seguras y frases fáciles de recordar con opciones configurables. |
+| Asistente de Regex | `/regex-helper` | Construye y prueba expresiones regulares de forma interactiva. |
+| Atajos de Windows | `/windows-shortcuts` | Consulta atajos de teclado útiles para Windows. |
+| Comandos de Git | `/git-commands` | Muestra comandos de Git frecuentes con su descripción. |
+| Listado de IA | `/ia-list` | Reúne enlaces a herramientas de inteligencia artificial. |
+| Calculadora de margen | `/price-margin` | Calcula el margen de beneficio a partir de los datos de precio y coste. |
 
 ## Tecnologías Utilizadas
 
@@ -32,9 +20,24 @@ Un proyecto de Next.js que agrupa herramientas útiles para el día a día en in
 - **Tailwind CSS**: Para estilos rápidos y responsivos.
 - **React**: Biblioteca principal para la construcción de la interfaz de usuario.
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
-src/ ├── app/ │ ├── (tools)/ # Grupo de herramientas │ │ ├── password-generator/ # Generador de contraseñas │ │ ├── regex-helper/ # Ayudante de regex │ │ ├── windows-shortcuts/ # Listado de atajos de Windows │ │ └── ... # Otras herramientas │ ├── layout.tsx # Layout principal │ └── page.tsx # Página de inicio ├── components/ # Componentes reutilizables ├── hooks/ # Hooks personalizados ├── utils/ # Funciones utilitarias └── styles/ # Estilos globales
+```text
+src/
+   app/
+      (tools)/
+         git-commands/
+         ia-list/
+         password-generator/
+         price-margin/
+         regex-helper/
+         windows-shortcuts/
+      layout.tsx
+      page.tsx
+   components/
+   hooks/
+   utils/
+```
 
 ## Cómo Configurar el Proyecto
 
@@ -54,4 +57,14 @@ bash
 Copy
 npm run dev
 Abre tu navegador en http://localhost:3000 para ver el proyecto en acción.
+
+## Ejecutar con Docker
+
+Con Docker Desktop iniciado, ejecuta:
+
+```bash
+docker compose up --build
+```
+
+La aplicación estará disponible en http://localhost:3000. Los cambios en el código se reflejan automáticamente. Para detenerla, usa `Ctrl+C`; para eliminar el contenedor y el volumen de dependencias, ejecuta `docker compose down -v`.
 
