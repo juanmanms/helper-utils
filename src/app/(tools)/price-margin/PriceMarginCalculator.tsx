@@ -22,7 +22,6 @@ const PriceMarginCalculator: React.FC = () => {
     marginPercentage,
     profit,
     applyMarginByPrice,
-    applyMarginToSelling,
     applySectorMargin,
     reset,
   } = usePriceMarginCalculator();
