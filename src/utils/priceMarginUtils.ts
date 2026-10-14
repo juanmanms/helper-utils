@@ -12,6 +12,8 @@ export const SECTORS: Sector[] = [
   { id: 'memory-storage', name: 'RAM y almacenamiento', defaultMargin: 10 },
   { id: 'peripherals', name: 'Periféricos y accesorios', defaultMargin: 25 },
   { id: 'refurbished', name: 'Equipos reacondicionados', defaultMargin: 20 },
+  { id: 'hosting', name: 'Hosting', defaultMargin: 40 },
+  { id: 'domains', name: 'Dominios', defaultMargin: 20 },
   { id: 'custom', name: 'Personalizado', defaultMargin: 0 },
 ];
 
