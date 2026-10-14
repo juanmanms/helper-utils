@@ -5,6 +5,7 @@ import usePriceMarginCalculator from '../../../hooks/usePriceMarginCalculator';
 import { SECTORS } from '../../../utils/priceMarginUtils';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import Checkbox from '../../../components/Checkbox';
 
 const euroFormatter = new Intl.NumberFormat('es-ES', {
   style: 'currency',
@@ -17,6 +18,8 @@ const PriceMarginCalculator: React.FC = () => {
     setCostPrice,
     sellingPrice,
     setSellingPrice,
+    includeVAT,
+    setIncludeVAT,
     selectedSectorId,
     selectedSector,
     marginPercentage,
@@ -51,7 +54,7 @@ const PriceMarginCalculator: React.FC = () => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-2 text-center">Calculadora de Margen</h1>
         <p className="text-gray-600 text-center mb-6 text-sm">
-          Margen recomendado para retail informático en España, sin IVA
+          Calcula el recargo y añade el IVA general del 21% al precio de venta si lo necesitas.
         </p>
 
         {/* Selector de Sector */}
@@ -93,12 +96,17 @@ const PriceMarginCalculator: React.FC = () => {
               Aplicar
             </Button>
           </div>
+          <Checkbox
+            checked={includeVAT}
+            onChange={setIncludeVAT}
+            label="Añadir IVA (21%) al precio de venta"
+          />
         </div>
 
         {/* Precio de Venta */}
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Precio de venta sin IVA
+            {includeVAT ? 'Precio de venta con IVA' : 'Precio de venta sin IVA'}
           </label>
           <Input
             type="number"
@@ -116,7 +124,7 @@ const PriceMarginCalculator: React.FC = () => {
             <span className="text-2xl font-bold text-blue-600">{marginPercentage}%</span>
           </div>
           <div className="flex justify-between items-center pt-3 border-t border-blue-200">
-            <span className="text-gray-700 font-medium">Ganancia (monto):</span>
+            <span className="text-gray-700 font-medium">Ganancia (sin IVA):</span>
             <span className="text-xl font-bold text-green-600">
               {euroFormatter.format(profit)}
             </span>
@@ -137,7 +145,9 @@ const PriceMarginCalculator: React.FC = () => {
                 <span className="font-semibold">{euroFormatter.format(costPrice)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Venta:</span>
+                <span className="text-gray-600">
+                  Venta {includeVAT ? 'con IVA' : 'sin IVA'}:
+                </span>
                 <span className="font-semibold">{euroFormatter.format(sellingPrice)}</span>
               </div>
               <div className="flex justify-between text-green-600">

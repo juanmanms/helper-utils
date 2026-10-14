@@ -11,20 +11,38 @@ const usePriceMarginCalculator = () => {
   const [costPrice, setCostPrice] = useState<number>(0);
   const [sellingPrice, setSellingPrice] = useState<number>(0);
   const [selectedSectorId, setSelectedSectorId] = useState<string>('laptops');
+  const [includeVAT, setIncludeVATState] = useState<boolean>(false);
 
   const selectedSector = SECTORS.find((s) => s.id === selectedSectorId) || SECTORS[0];
-  const marginPercentage = calculateMarginPercentage(costPrice, sellingPrice);
-  const profit = calculateProfit(costPrice, sellingPrice);
+  const marginPercentage = calculateMarginPercentage(costPrice, sellingPrice, includeVAT);
+  const profit = calculateProfit(costPrice, sellingPrice, includeVAT);
+
+  const setIncludeVAT = (enabled: boolean): void => {
+    setIncludeVATState(enabled);
+    if (costPrice > 0) {
+      setSellingPrice(
+        calculateSellingPrice(costPrice, selectedSector.defaultMargin, enabled)
+      );
+    }
+  };
 
   const applyMarginByPrice = (price: number): void => {
     setCostPrice(price);
-    const newSellingPrice = calculateSellingPrice(price, selectedSector.defaultMargin);
+    const newSellingPrice = calculateSellingPrice(
+      price,
+      selectedSector.defaultMargin,
+      includeVAT
+    );
     setSellingPrice(newSellingPrice);
   };
 
   const applyMarginToSelling = (price: number): void => {
     setSellingPrice(price);
-    const newCostPrice = calculateCostPrice(price, selectedSector.defaultMargin);
+    const newCostPrice = calculateCostPrice(
+      price,
+      selectedSector.defaultMargin,
+      includeVAT
+    );
     setCostPrice(newCostPrice);
   };
 
@@ -33,7 +51,8 @@ const usePriceMarginCalculator = () => {
     if (costPrice > 0) {
       const newSellingPrice = calculateSellingPrice(
         costPrice,
-        SECTORS.find((s) => s.id === sectorId)?.defaultMargin || 0
+        SECTORS.find((s) => s.id === sectorId)?.defaultMargin || 0,
+        includeVAT
       );
       setSellingPrice(newSellingPrice);
     }
@@ -43,6 +62,7 @@ const usePriceMarginCalculator = () => {
     setCostPrice(0);
     setSellingPrice(0);
     setSelectedSectorId('laptops');
+    setIncludeVATState(false);
   };
 
   return {
@@ -50,6 +70,8 @@ const usePriceMarginCalculator = () => {
     setCostPrice,
     sellingPrice,
     setSellingPrice,
+    includeVAT,
+    setIncludeVAT,
     selectedSectorId,
     setSelectedSectorId,
     selectedSector,

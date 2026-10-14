@@ -4,6 +4,8 @@ export interface Sector {
   defaultMargin: number;
 }
 
+export const VAT_RATE = 0.21;
+
 export const SECTORS: Sector[] = [
   { id: 'laptops', name: 'Portátiles', defaultMargin: 8 },
   { id: 'desktops', name: 'Ordenadores de sobremesa', defaultMargin: 12 },
@@ -19,33 +21,41 @@ export const SECTORS: Sector[] = [
 
 export const calculateMarginPercentage = (
   costPrice: number,
-  sellingPrice: number
+  sellingPrice: number,
+  includeVAT = false
 ): number => {
   if (costPrice <= 0) return 0;
-  const margin = ((sellingPrice - costPrice) / costPrice) * 100;
+  const netSellingPrice = includeVAT ? sellingPrice / (1 + VAT_RATE) : sellingPrice;
+  const margin = ((netSellingPrice - costPrice) / costPrice) * 100;
   return parseFloat(margin.toFixed(2));
 };
 
 export const calculateSellingPrice = (
   costPrice: number,
-  marginPercentage: number
+  marginPercentage: number,
+  includeVAT = false
 ): number => {
-  const sellingPrice = costPrice * (1 + marginPercentage / 100);
+  const netSellingPrice = costPrice * (1 + marginPercentage / 100);
+  const sellingPrice = includeVAT ? netSellingPrice * (1 + VAT_RATE) : netSellingPrice;
   return parseFloat(sellingPrice.toFixed(2));
 };
 
 export const calculateCostPrice = (
   sellingPrice: number,
-  marginPercentage: number
+  marginPercentage: number,
+  includeVAT = false
 ): number => {
-  const costPrice = sellingPrice / (1 + marginPercentage / 100);
+  const netSellingPrice = includeVAT ? sellingPrice / (1 + VAT_RATE) : sellingPrice;
+  const costPrice = netSellingPrice / (1 + marginPercentage / 100);
   return parseFloat(costPrice.toFixed(2));
 };
 
 export const calculateProfit = (
   costPrice: number,
-  sellingPrice: number
+  sellingPrice: number,
+  includeVAT = false
 ): number => {
-  const profit = sellingPrice - costPrice;
+  const netSellingPrice = includeVAT ? sellingPrice / (1 + VAT_RATE) : sellingPrice;
+  const profit = netSellingPrice - costPrice;
   return parseFloat(profit.toFixed(2));
 };
